@@ -1,0 +1,16 @@
+{
+  "title": "TITLE",
+  "titleTemplate": "",
+  "description": "DDESCRIPTION",
+  "openGraph": {
+    "type": "website",
+    "locale": "en_IE",
+    "url": "https://home.onidsplay.co.kr/",
+    "site_name": "SITE_NAME"
+  },
+  "twitter": {
+    "handle": "@ondisplay.art",
+    "site": "@ondisplay.art",
+    "cardType": "summary_large_image"
+  }
+}
