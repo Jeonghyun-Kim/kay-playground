@@ -4,3 +4,4 @@ export { default as Link } from './Link';
 export { default as LoadingDots } from './LoadingDots';
 export { default as LogoOneLine } from './LogoOneLine';
 export { default as LogoSquared } from './LogoSquared';
+export { default as Modal } from './Modal';

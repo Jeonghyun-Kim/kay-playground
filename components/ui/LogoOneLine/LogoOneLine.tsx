@@ -5,6 +5,7 @@ interface Props {
 }
 const LogoOneLine: React.FC<Props> = ({ className = '', ...props }) => (
   <svg
+    id="logo-one-line"
     viewBox="0 0 2612 581"
     fill="#000000"
     xmlns="http://www.w3.org/2000/svg"

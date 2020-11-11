@@ -3,7 +3,7 @@ import '@assets/main.css';
 import React from 'react';
 import type { AppProps } from 'next/app';
 
-// import { ManagedUIContext } from '@components/ui/context';
+import ManagedUIContext from '@components/ui/context';
 import { Head } from '@components/core';
 
 const Noop: React.FC = ({ children }) => <>{children}</>;
@@ -14,9 +14,11 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head />
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ManagedUIContext>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ManagedUIContext>
     </>
   );
 };

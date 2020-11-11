@@ -18,7 +18,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: React.FC<ButtonProps> = React.forwardRef((props, buttonRef) => {
   const {
-    className,
+    className = '',
     variant = 'flat',
     children,
     active,
@@ -67,11 +67,12 @@ const Button: React.FC<ButtonProps> = React.forwardRef((props, buttonRef) => {
         ...style,
       }}
     >
-      {children}
-      {loading && (
+      {loading ? (
         <i className="pl-2 m-0 flex">
           <LoadingDots />
         </i>
+      ) : (
+        children
       )}
     </Root>
   );
