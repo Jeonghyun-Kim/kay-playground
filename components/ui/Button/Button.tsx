@@ -1,5 +1,6 @@
 import React, { ButtonHTMLAttributes, JSXElementConstructor } from 'react';
 import mergeRefs from 'react-merge-refs';
+import cn from 'classnames';
 import { useButton } from '@react-aria/button';
 import { LoadingDots } from '@components/ui';
 
@@ -40,6 +41,18 @@ const Button: React.FC<ButtonProps> = React.forwardRef((props, buttonRef) => {
     ref
   );
 
+  const rootClassName = cn(
+    'button-root',
+    'transition',
+    'ease-in-out',
+    'duration-150',
+    {
+      slim: variant === 'slim',
+      loading: loading,
+      disabled: disabled,
+    }
+  );
+
   return (
     <Root
       aria-pressed={active}
@@ -47,7 +60,7 @@ const Button: React.FC<ButtonProps> = React.forwardRef((props, buttonRef) => {
       ref={mergeRefs([ref, buttonRef])}
       {...buttonProps}
       data-active={isPressed ? '' : undefined}
-      // className={rootClassName}
+      className={rootClassName}
       disabled={disabled}
       style={{
         width,
