@@ -3,7 +3,7 @@ import React from 'react';
 interface Props {
   className?: string;
 }
-const Cross: React.FC<Props> = ({ className = '', ...props }) => (
+const Cross: React.FC<Props> = ({ className, ...props }) => (
   <svg
     className={className}
     viewBox="0 0 24 24"

@@ -1,9 +1,14 @@
 import React from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 
-const Link: React.FC<NextLinkProps> = ({ href, children, ...props }) => (
+interface Props extends NextLinkProps {
+  className?: string;
+}
+const Link: React.FC<Props> = ({ href, children, className, ...props }) => (
   <NextLink href={href}>
-    <a {...props}>{children}</a>
+    <a className={className} {...props}>
+      {children}
+    </a>
   </NextLink>
 );
 

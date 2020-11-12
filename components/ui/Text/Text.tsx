@@ -2,17 +2,17 @@ import React from 'react';
 
 import { Body, Heading, PageHeading, SectionHeading } from './Text.styles';
 
-type Variant = 'heading' | 'body' | 'pageHeading' | 'sectionHeading';
+export type TextVariant = 'heading' | 'body' | 'pageHeading' | 'sectionHeading';
 
 interface Props {
-  variant?: Variant;
+  variant?: TextVariant;
   className?: string;
   style?: React.CSSProperties;
   children: React.ReactNode;
 }
 const Text: React.FC<Props> = ({
   variant = 'body',
-  className = '',
+  className,
   style,
   children,
   ...props

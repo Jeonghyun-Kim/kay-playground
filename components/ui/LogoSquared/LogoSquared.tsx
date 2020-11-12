@@ -3,7 +3,7 @@ import React from 'react';
 interface Props {
   className?: string;
 }
-const LogoSquared: React.FC<Props> = ({ className = '', ...props }) => (
+const LogoSquared: React.FC<Props> = ({ className, ...props }) => (
   <svg
     id="logo-squared"
     viewBox="0 0 2000 2000"

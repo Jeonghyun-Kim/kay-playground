@@ -28,7 +28,7 @@ interface Props {
   onClose: () => void;
 }
 const Modal: React.FC<Props> = ({
-  className = '',
+  className,
   children,
   open = false,
   onClose,

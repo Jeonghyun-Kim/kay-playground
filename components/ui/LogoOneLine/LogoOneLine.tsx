@@ -3,7 +3,7 @@ import React from 'react';
 interface Props {
   className?: string;
 }
-const LogoOneLine: React.FC<Props> = ({ className = '', ...props }) => (
+const LogoOneLine: React.FC<Props> = ({ className, ...props }) => (
   <svg
     id="logo-one-line"
     viewBox="0 0 2612 581"
