@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Root = styled.button`
-  background-color: var(--secendary);
+  background-color: var(--secondary);
   color: var(--accents-1);
   cursor: pointer;
   padding: 8px 10px;

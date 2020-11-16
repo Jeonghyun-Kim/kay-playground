@@ -20,6 +20,7 @@ const Header: React.FC<Props> = ({ className, ...props }) => {
         className,
         'flex justify-between items-center py-4 md:py-6 relative'
       )}
+      {...props}
     >
       <div className="flex flex-1 items-center">
         <Link href="/" className="logo transition ease-in-out duration-100">

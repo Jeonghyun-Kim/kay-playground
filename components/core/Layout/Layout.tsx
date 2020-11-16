@@ -16,17 +16,18 @@ const Layout: React.FC = ({ children }) => {
     isDisabled: !displayModal,
   });
 
+  const handleScroll = React.useCallback(() => {
+    debounce(() => {
+      const offset = 0;
+      const { scrollTop } = document.documentElement;
+      setHasScrolled(scrollTop > offset);
+    }, 1);
+  }, []);
+
   React.useEffect(() => {
-    const handleScroll = () => {
-      debounce(() => {
-        const offset = 0;
-        const { scrollTop } = document.documentElement;
-        setHasScrolled(scrollTop > offset);
-      }, 1);
-    };
     document.addEventListener('scroll', handleScroll);
     return () => document.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   return (
     <Root>
