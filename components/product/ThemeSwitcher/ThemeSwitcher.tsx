@@ -9,18 +9,8 @@ interface Props {
 const ThemeSwitcher: React.FC<Props> = ({ className, ...props }) => {
   const { theme, setTheme } = useTheme();
 
-  React.useEffect(() => {
-    setTheme(localStorage.getItem('@theme') ?? 'light');
-  }, [setTheme]);
-
   const toggleTheme = React.useCallback(() => {
-    if (theme === 'light') {
-      setTheme('dark');
-      localStorage.setItem('@theme', 'dark');
-    } else {
-      setTheme('light');
-      localStorage.setItem('@theme', 'light');
-    }
+    setTheme(theme === 'light' ? 'dark' : 'light');
   }, [theme, setTheme]);
 
   const Component = React.useMemo(() => (theme === 'light' ? Sun : Moon), [
