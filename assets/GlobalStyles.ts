@@ -93,8 +93,15 @@ export const globalCSS = css`
 
   body {
     position: relative;
-    min-height: 100%;
+    height: 100%;
     margin: 0;
+  }
+
+  #__next {
+    height: 100%;
+    & > div {
+      height: 100%;
+    }
   }
 
   a {

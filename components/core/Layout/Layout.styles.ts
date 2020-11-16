@@ -9,5 +9,5 @@ export const Root = styled.div.attrs({
 `;
 
 export const Main = styled.main`
-  min-height: calc(100vh - 88px);
+  height: calc(100vh - 80px);
 `;
