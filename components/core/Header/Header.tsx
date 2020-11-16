@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import styled from 'styled-components';
 import { Link, LogoSquared } from '@components/ui';
+import { ThemeSwitcher } from '@components/product';
 
 import { Root } from './Header.Layout';
 
@@ -34,6 +35,7 @@ const Header: React.FC<Props> = ({ className, ...props }) => {
         <Link href="/test" className="link transition ease-in-out duration-75">
           Tests
         </Link>
+        <ThemeSwitcher />
       </nav>
     </Root>
   );

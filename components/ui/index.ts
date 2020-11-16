@@ -1,5 +1,6 @@
 export { default as Button } from './Button';
 export { default as Container } from './Container';
+export { default as IconButton } from './IconButton';
 export { default as Link } from './Link';
 export { default as Loading } from './Loading';
 export { default as LoadingDots } from './LoadingDots';

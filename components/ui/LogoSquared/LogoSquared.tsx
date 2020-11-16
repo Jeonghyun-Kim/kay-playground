@@ -7,7 +7,7 @@ const LogoSquared: React.FC<Props> = ({ className, ...props }) => (
   <svg
     id="logo-squared"
     viewBox="0 0 2000 2000"
-    fill="#000000"
+    fill="var(--secondary)"
     xmlns="http://www.w3.org/2000/svg"
     className={className}
     {...props}
