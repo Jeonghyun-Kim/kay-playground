@@ -1,25 +1,11 @@
 import React from 'react';
 import { useDialog } from '@react-aria/dialog';
 import { FocusScope } from '@react-aria/focus';
-import { Transition } from 'react-transition-group';
+import { Transition } from '@headlessui/react';
 import { useOverlay, useModal, OverlayContainer } from '@react-aria/overlays';
 import { Cross } from '@components/icons';
 
 import { Root, Container } from './Modal.styles';
-
-const duration = 300;
-
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-};
-
-const transitionStyles = {
-  entering: { opacity: 1 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 0 },
-  exited: { opacity: 0 },
-};
 
 interface Props {
   className?: string;
@@ -48,15 +34,17 @@ const Modal: React.FC<Props> = ({
   );
 
   return (
-    <Transition in={open} timeout={duration} unmountOnExit>
-      {(state) => (
-        <OverlayContainer>
-          <FocusScope contain autoFocus>
-            <Root
-              className={className}
-              // @ts-ignore For using trnasitions
-              style={{ ...defaultStyle, ...transitionStyles[state] }}
-              {...props}
+    <Transition show={open}>
+      <OverlayContainer>
+        <FocusScope contain autoFocus>
+          <Root className={className} {...props}>
+            <Transition.Child
+              enter="transition-opacity ease-linear duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity ease-linear duration-300"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
             >
               <Container
                 ref={ref}
@@ -75,10 +63,10 @@ const Modal: React.FC<Props> = ({
                 </div>
                 {children}
               </Container>
-            </Root>
-          </FocusScope>
-        </OverlayContainer>
-      )}
+            </Transition.Child>
+          </Root>
+        </FocusScope>
+      </OverlayContainer>
     </Transition>
   );
 };

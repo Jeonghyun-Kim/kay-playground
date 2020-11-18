@@ -5,12 +5,10 @@ import styled from 'styled-components';
 import { Button, Text, Input } from '@components/ui';
 import { useUI } from '@components/ui/context';
 
-const Root = styled.div.attrs(() => ({
-  className: `mx-auto w-1/2`,
-}))``;
+const Root = styled.div``;
 
 export default function Home() {
-  const { openModal, setModalView } = useUI();
+  const { openSidebar, openModal, setModalView } = useUI();
 
   const handleTestModalOpen = React.useCallback(() => {
     setModalView('TEST_VIEW');
@@ -18,8 +16,9 @@ export default function Home() {
   }, []);
 
   return (
-    <Root>
-      <Button onClick={() => handleTestModalOpen()}>Click Me!</Button>
+    <Root className="mx-auto max-w-screen-xl px-2 pt-10 pb-20">
+      <Button onClick={() => handleTestModalOpen()}>open modal</Button>
+      <Button onClick={() => openSidebar()}>open sidebar</Button>
       <Text variant="body">BODY</Text>
       <Text variant="heading">HEllo I am Heading</Text>
       <Text variant="sectionHeading">Hi I'm SectionHeading</Text>

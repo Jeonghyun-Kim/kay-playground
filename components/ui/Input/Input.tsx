@@ -6,6 +6,7 @@ import { Root } from './Input.styles';
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   label?: string;
+  name?: string;
   required?: boolean;
   error?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -13,6 +14,7 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 const Input: React.FC<Props> = ({
   className,
   label,
+  name = label,
   required,
   error = false,
   onChange,
@@ -20,11 +22,12 @@ const Input: React.FC<Props> = ({
 }) => {
   return (
     <Root className={cn({ error, required })}>
-      <label>
+      <label htmlFor={name}>
         {label}
         {required && ' (*)'}
       </label>
       <input
+        name={name}
         className={cn(className, 'transition duration-150 ease-in-out')}
         {...props}
       />

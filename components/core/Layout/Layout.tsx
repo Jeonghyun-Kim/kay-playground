@@ -3,17 +3,23 @@ import cn from 'classnames';
 import { usePreventScroll } from '@react-aria/overlays';
 import debounce from 'lodash.debounce';
 import { Header } from '@components/core';
-import { Container, Modal } from '@components/ui';
+import { Container, Modal, Sidebar } from '@components/ui';
 import { useUI } from '@components/ui/context';
 
 import { Root, Main } from './Layout.styles';
 
 const Layout: React.FC = ({ children }) => {
-  const { displayModal, closeModal, modalView } = useUI();
+  const {
+    displaySidebar,
+    displayModal,
+    closeSidebar,
+    closeModal,
+    modalView,
+  } = useUI();
   const [hasScrolled, setHasScrolled] = React.useState<boolean>(false);
 
   usePreventScroll({
-    isDisabled: !displayModal,
+    isDisabled: !(displayModal || displaySidebar),
   });
 
   React.useEffect(() => {
@@ -42,6 +48,9 @@ const Layout: React.FC = ({ children }) => {
         </Container>
       </header>
       <Main>{children}</Main>
+      <Sidebar open={displaySidebar} onClose={closeSidebar}>
+        hello world!
+      </Sidebar>
       <Modal open={displayModal} onClose={closeModal}>
         {modalView === 'TEST_VIEW' && <div>TEST_MODAL ON!!!</div>}
       </Modal>
