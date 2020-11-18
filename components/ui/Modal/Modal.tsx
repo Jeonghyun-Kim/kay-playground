@@ -28,7 +28,6 @@ const Modal: React.FC<Props> = ({
       isOpen: open,
       isDismissable: false,
       onClose,
-      ...props,
     },
     ref
   );
