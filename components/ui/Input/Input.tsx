@@ -29,6 +29,7 @@ const Input: React.FC<Props> = ({
       <input
         name={name}
         className={cn(className, 'transition duration-150 ease-in-out')}
+        onChange={onChange}
         {...props}
       />
     </Root>
